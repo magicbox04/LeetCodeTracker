@@ -53,22 +53,20 @@ export function LeetCodeStatusList({ leetCodeList, setLeetCodeList }) {
                                     setLeetCodeList(leetCodeList.map(thisLeetCode => thisLeetCode.id === leetCode.id ? calculateNextReview(leetCode) : thisLeetCode))
                                 }
                                 }>Reviewed</button>
-                                {leetCode.nextReviewedDate} | {leetCode.reviewNum} | {leetCode.questionLink} 
+                                {leetCode.nextReviewedDate} | {leetCode.reviewNum} | {leetCode.questionLink}
                             </div>
                         )
                     }
-                    else
-                    {
+                    else {
                         return (
                             <div className="leetcode-list-item" id={leetCode.id} key={leetCode.id}>
                                 {leetCode.questionName}
-                                Complete | {leetCode.reviewNum} | {leetCode.questionLink} 
+                                Complete | {leetCode.reviewNum} | {leetCode.questionLink}
                             </div>
                         )
                     }
                 })}
             </div>
-
         </>
     )
 }
