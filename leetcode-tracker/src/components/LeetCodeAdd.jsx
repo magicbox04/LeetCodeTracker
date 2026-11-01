@@ -29,7 +29,7 @@ export function LeetCodeAdd ({leetCodeList, setLeetCodeList})
 
     function saveChange()
     {
-        if (questionName !== "")
+        if (questionName !== "" && questionLink !== "")
         {
             const newLeetCode={
             id : crypto.randomUUID(),
@@ -47,6 +47,7 @@ export function LeetCodeAdd ({leetCodeList, setLeetCodeList})
             setCompletedDate("")
             setDifficulty("")
             setQuestionLink("")
+            localStorage.setItem("leetCodeList", JSON.stringify(leetCodeList))
         }
         
     }

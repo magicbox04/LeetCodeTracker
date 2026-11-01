@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { LeetCodeStatusList } from './components/LeetCodeStatusList.jsx'
 import { LeetCodeAdd } from './components/LeetCodeAdd.jsx'
@@ -6,7 +6,20 @@ import { NeedReview } from './components/NeedReview.jsx'
 import './App.css'
 
 function App() {
-  const [leetCodeList, setLeetCodeList] = useState([])
+  const [leetCodeList, setLeetCodeList] = useState(()=>{
+    if (localStorage.getItem("leetCodeList") === null)
+    {
+      return []
+    }
+    else
+    {
+      return JSON.parse(localStorage.getItem("leetCodeList"));
+    }
+  })
+
+  useEffect(()=>{
+    localStorage.setItem("leetCodeList", JSON.stringify(leetCodeList))
+  })
 
   return (
     <>

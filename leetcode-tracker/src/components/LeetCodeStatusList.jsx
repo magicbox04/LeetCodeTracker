@@ -26,6 +26,7 @@ export function LeetCodeStatusList({ leetCodeList, setLeetCodeList }) {
                         )
                     }
                 })}
+            
             </div>
         </>
     )
