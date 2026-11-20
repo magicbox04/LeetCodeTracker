@@ -1,5 +1,5 @@
 import dayjs from "dayjs"
-export function NeedReview({ leetCodeList, setLeetCodeList }) {
+export function NeedReview({ leetCodeList }) {
     return (
         <>
             <div className="need-review-container">
