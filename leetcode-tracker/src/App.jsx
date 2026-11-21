@@ -4,7 +4,8 @@ import { LeetCodeStatusList } from './components/LeetCodeStatusList.jsx'
 import { LeetCodeAdd } from './components/LeetCodeAdd.jsx'
 import { NeedReview } from './components/NeedReview.jsx'
 import { ManageLink } from './components/ManageLink.jsx'
-import { ManagePage } from './pages/managePage.jsx'
+import { ManagePage } from './pages/ManagePage.jsx'
+
 import './App.css'
 
 function App() {
