@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { addDays } from "../utils/ChangeDates"
+import './LeetCodeAdd.css'
 export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
     const [questionName, setQuestionName] = useState("")
     const [completedDate, setCompletedDate] = useState("")
@@ -46,17 +47,25 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
     }
     return (
         <>
+        <h1 className="add-leetcode-header">Add Leetcode</h1>
             <div className="leetcode-add-container" id="add">
-                <input type="text" name="question-name" value={questionName} onChange={changeName} />
-                <input type="date" name="question-completed-date" value={completedDate} onChange={changeDate} />
-                <input type="radio" id="easy" name="difficulty" value="easy" checked={difficulty === 'easy'} onChange={changeDifficulty} />
-                <label htmlFor="easy">easy</label>
-                <input type="radio" id="medium" name="difficulty" value="medium" checked={difficulty === 'medium'} onChange={changeDifficulty} />
-                <label htmlFor="medium">medium</label>
-                <input type="radio" id="hard" name="difficulty" value="hard" checked={difficulty === 'hard'} onChange={changeDifficulty} />
-                <label htmlFor="hard">hard</label>
-                <input type="text" name="question-link" value={questionLink} onChange={changeQuestionLink} />
-                <button onClick={saveChange}>Save</button>
+                <div className="add-container-main-text">
+                    <input type="text" className="main-text-name" value={questionName} onChange={changeName} placeholder="Question Name" />
+                    <input type="date" className="main-text-date" value={completedDate} onChange={changeDate} label="Finished Date" />
+                    <input type="text" className="main-text-link" value={questionLink} onChange={changeQuestionLink} placeholder="Question Link" />
+                </div>
+                <fieldset className="difficulty-group">
+                    <input type="radio" id="easy" name="difficulty" value="easy" checked={difficulty === 'easy'} onChange={changeDifficulty} />
+                    <label htmlFor="easy" className="difficulty">easy</label>
+                    <input type="radio" id="medium" name="difficulty" value="medium" checked={difficulty === 'medium'} onChange={changeDifficulty} />
+                    <label htmlFor="medium" className="difficulty">medium</label>
+                    <input type="radio" id="hard" name="difficulty" value="hard" checked={difficulty === 'hard'} onChange={changeDifficulty} />
+                    <label htmlFor="hard" className="difficulty">hard</label>
+                </fieldset>
+                <div className="save-button">
+                    <button onClick={saveChange} className="save">Save</button>
+                </div>
+
             </div>
         </>
     )
