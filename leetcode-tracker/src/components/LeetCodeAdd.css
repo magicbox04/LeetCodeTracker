@@ -74,8 +74,8 @@ fieldset {
 }
 
 .difficulty-group input:checked + .difficulty {
-    background: black;
-    color: white;
+    background: #FFA116;
+    color: black;
 }
 .save {
     font: inherit;
@@ -89,9 +89,9 @@ fieldset {
 }
 
 
-.save-button:hover{
-    background:transparent;
-    color:black;
+.save:hover{
+  background: #FFA116;
+    border-color: #FFA116;
 }
 
 .save-button:active {
@@ -103,6 +103,7 @@ fieldset {
     font-weight: 700;
     text-align: center;
     margin: 1.5em 0 1em;
+    color:#FFA116
 }
 
 .add-leetcode-header::after {
