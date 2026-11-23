@@ -1,0 +1,63 @@
+.leetcode-reviewed-button.easy   { --diff-color: #00B8A3; }
+.leetcode-reviewed-button.medium { --diff-color: #FFC01E; }
+.leetcode-reviewed-button.hard   { --diff-color: #FF375F; }
+.leetcode-list-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;  
+}
+.leetcode-list-item {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: transparent; 
+    width: 100%;
+    transition: color .40s ease;
+    overflow:hidden;
+}
+
+.leetcode-list-name {
+    
+    position:relative;
+    font:inherit;
+    width:20em;
+}
+
+.leetcode-reviewed-button{
+    font:inherit;
+    border: 1px solid;
+    border-radius: 100px;
+    padding: 1em 2em;
+    background-color: var(--diff-color);
+    transition: background .3s ease;
+}
+
+.leetcode-list-question-link{
+    
+    position:relative;
+    font:inherit;
+    width:20em;
+    
+}
+
+.leetcode-delete-button{
+    font:inherit;
+    border: 1px solid;
+    border-radius: 100px;
+    padding: 1em 2em;
+    background-color:black;
+    color: white;
+}
+
+.leetcode-delete-button:hover{
+    background-color:red;
+    color: black;
+    transition: background .3s ease, color .3s ease;
+    
+}
+
+.leetcode-list-nextdate, leetcode-list-reviews, leetcode-list-question-link {
+    font:inherit;
+}
+

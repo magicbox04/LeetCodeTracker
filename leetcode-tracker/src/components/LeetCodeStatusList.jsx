@@ -1,34 +1,34 @@
 import { calculateNextReview } from "../utils/CalculateNextReview"
-import { LeetCodeDelete
+import {LeetCodeDelete} from "./LeetCodeDelete"
+import "./LeetCodeStatusList.css"
 
- } from "./LeetCodeDelete"
 export function LeetCodeStatusList({ leetCodeList, setLeetCodeList }) {
     return (
         <>
+            <h1 className="leetcode-header">
+                Status
+            </h1>
             <div className="leetcode-list-container">
                 {leetCodeList.map((leetCode) => {
                     if (leetCode.isComplete === false) {
                         return (
                             <div className="leetcode-list-item" id={leetCode.id} key={leetCode.id}>
-                                {leetCode.questionName}
-                                <button className="leetcode-reviewed-button" onClick={() => {
+                                <div className="leetcode-list-name" >{leetCode.questionName}</div>
+                                <button className={`leetcode-reviewed-button ${leetCode.difficulty}`} onClick={() => {
                                     setLeetCodeList(leetCodeList.map(thisLeetCode => thisLeetCode.id === leetCode.id ? calculateNextReview(leetCode) : thisLeetCode))
-                                }
-                                }>Reviewed</button>
-                                {leetCode.nextReviewedDate} | {leetCode.reviewNum} | {leetCode.questionLink} | 
-                                <LeetCodeDelete targetID = {leetCode.id} leetCodeList={leetCodeList} setLeetCodeList={setLeetCodeList} />
-                            </div>
-                        )
-                    }
-                    else {
-                        return (
-                            <div className="leetcode-list-item" id={leetCode.id} key={leetCode.id}>
-                                {leetCode.questionName} | Complete | {leetCode.reviewNum} | {leetCode.questionLink}
+                                }}>
+                                    Reviewed
+                                </button>
+
+                                <div className="leetcode-list-nextdate">{leetCode.nextReviewedDate} </div>
+                                <div className="leetcode-list-reviews" >{leetCode.reviewNum} / 4 Reviews  </div>
+                                <div className="leetcode-list-question-link">{leetCode.questionLink}  </div>
+                                <LeetCodeDelete targetID={leetCode.id} leetCodeList={leetCodeList} setLeetCodeList={setLeetCodeList} />
                             </div>
                         )
                     }
                 })}
-            
+
             </div>
         </>
     )

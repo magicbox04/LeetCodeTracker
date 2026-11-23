@@ -1,5 +1,4 @@
 .leetcode-add-container{
-    outline:2px solid black;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -7,7 +6,6 @@
 }
 
 .add-container-main-text {
-    outline: 2px solid red;
     display: flex;
     gap: 1em
 }
@@ -51,6 +49,10 @@
     overflow:hidden;
 }
 
+.difficulty.easy   { --diff-color: #00B8A3; }
+.difficulty.medium { --diff-color: #FFC01E; }
+.difficulty.hard   { --diff-color: #FF375F; }
+
 fieldset {
     display: flex;
     align-items: center;
@@ -71,12 +73,20 @@ fieldset {
     padding: 1em 2em;
     cursor: pointer;
     transition: background .4s ease, color .4s ease;
+    border-color: var(--diff-color);
+    color: var(--diff-color);
 }
 
 .difficulty-group input:checked + .difficulty {
-    background: #FFA116;
+    background: var(--diff-color);
     color: black;
 }
+
+.difficulty:hover {
+    background: var(--diff-color);
+    color: black;
+}
+
 .save {
     font: inherit;
     background: black;
@@ -98,7 +108,7 @@ fieldset {
     transform: scale(0.96);
 }
 
-.add-leetcode-header {
+.leetcode-header {
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
@@ -106,7 +116,7 @@ fieldset {
     color:#FFA116
 }
 
-.add-leetcode-header::after {
+.leetcode-header::after {
     content: "";
     display: block;
     width: 3em;
