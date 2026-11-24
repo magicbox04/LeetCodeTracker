@@ -6,6 +6,7 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
     const [completedDate, setCompletedDate] = useState("")
     const [difficulty, setDifficulty] = useState("")
     const [questionLink, setQuestionLink] = useState("")
+    const [memo, setMemo] = useState("")
 
     function changeName(e) {
         setQuestionName(e.target.value);
@@ -23,6 +24,11 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
         setQuestionLink(e.target.value);
     }
 
+    function changeMemo(e)
+    {
+        setMemo(e.target.value)
+    }
+
     function saveChange() {
         if (questionName !== "" && questionLink !== "") {
             const newLeetCode = {
@@ -32,6 +38,7 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
                 difficulty: difficulty,
                 questionLink: questionLink,
                 nextReviewedDate: addDays(completedDate, 3),
+                memo:memo,
                 reviewNum: 0,
                 isComplete: false
             }
@@ -54,6 +61,7 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
                     <input type="date" className="main-text-date" value={completedDate} onChange={changeDate} label="Finished Date" />
                     <input type="text" className="main-text-link" value={questionLink} onChange={changeQuestionLink} placeholder="Question Link" />
                 </div>
+                <input type="text" className="memo-input" onChange={changeMemo}></input>
                 <fieldset className="difficulty-group">
                     <input type="radio" id="easy" name="difficulty" value="easy" checked={difficulty === 'easy'} onChange={changeDifficulty} />
                     <label htmlFor="easy" className="difficulty easy">easy</label>
