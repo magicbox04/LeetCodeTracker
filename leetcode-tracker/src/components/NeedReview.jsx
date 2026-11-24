@@ -1,5 +1,7 @@
 import dayjs from "dayjs"
 import { calculateNextReview } from "../utils/CalculateNextReview"
+import {LeetCodeDelete} from "./LeetCodeDelete"
+
 export function NeedReview({ leetCodeList, setLeetCodeList }) {
     return (
         <>
@@ -14,13 +16,18 @@ export function NeedReview({ leetCodeList, setLeetCodeList }) {
                     )
                     .map((leetCode) => (
                         <div className="leetcode-list-item" key={leetCode.id}>
-                            <div>{leetCode.questionName}</div>
+                            <div className="leetcode-list-name" >{leetCode.questionName}</div>
                             <button className={`leetcode-reviewed-button ${leetCode.difficulty}`} onClick={() => {
                                 setLeetCodeList(leetCodeList.map(thisLeetCode => thisLeetCode.id === leetCode.id ? calculateNextReview(leetCode) : thisLeetCode))
-                            }}>Reviewed</button>
-                            <div className="leetcode-list-nextdate">{leetCode.nextReviewedDate}</div>
-                            <div className="leetcode-list-reviews">{leetCode.reviewNum} /4 Reviews</div>
-                            <div className="leetcode-list-question-link">{leetCode.questionLink} </div>
+                            }}>
+                                Reviewed
+                            </button>
+
+                            <div className="leetcode-list-nextdate">{leetCode.nextReviewedDate} </div>
+                            <div className="leetcode-list-reviews" >{leetCode.reviewNum} / 4 Reviews  </div>
+                            <div type="text" className="leetcode-list-memo">{leetCode.memo} </div >
+                            <div className="leetcode-list-question-link">{leetCode.questionLink}  </div>
+                            <LeetCodeDelete targetID={leetCode.id} leetCodeList={leetCodeList} setLeetCodeList={setLeetCodeList} />
                         </div>
                     ))}
             </div>

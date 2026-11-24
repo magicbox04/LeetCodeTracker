@@ -24,8 +24,7 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
         setQuestionLink(e.target.value);
     }
 
-    function changeMemo(e)
-    {
+    function changeMemo(e) {
         setMemo(e.target.value)
     }
 
@@ -38,7 +37,7 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
                 difficulty: difficulty,
                 questionLink: questionLink,
                 nextReviewedDate: addDays(completedDate, 3),
-                memo:memo,
+                memo: memo,
                 reviewNum: 0,
                 isComplete: false
             }
@@ -54,14 +53,19 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
     }
     return (
         <>
-        <h1 className="leetcode-header">Add Leetcode</h1>
+            <h1 className="leetcode-header">Add Leetcode</h1>
             <div className="leetcode-add-container" id="add">
                 <div className="add-container-main-text">
                     <input type="text" className="main-text-name" value={questionName} onChange={changeName} placeholder="Question Name" />
                     <input type="date" className="main-text-date" value={completedDate} onChange={changeDate} label="Finished Date" />
                     <input type="text" className="main-text-link" value={questionLink} onChange={changeQuestionLink} placeholder="Question Link" />
                 </div>
-                <input type="text" className="memo-input" onChange={changeMemo}></input>
+                <textarea className="memo-input" placeholder="put any memo" onChange={(e) => {
+                    changeMemo(e);
+                    e.target.style.height = "auto";
+                    e.target.style.height = e.target.scrollHeight + "px";
+                }}
+                    rows={1} />
                 <fieldset className="difficulty-group">
                     <input type="radio" id="easy" name="difficulty" value="easy" checked={difficulty === 'easy'} onChange={changeDifficulty} />
                     <label htmlFor="easy" className="difficulty easy">easy</label>

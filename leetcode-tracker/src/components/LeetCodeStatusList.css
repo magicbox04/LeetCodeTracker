@@ -3,25 +3,46 @@
 .leetcode-reviewed-button.hard   { --diff-color: #FF375F; }
 .leetcode-list-container
 {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 
+        minmax(8em, 1.5fr)
+        max-content
+        max-content
+        max-content
+        minmax(8em,2fr)
+        minmax(8em,1.5fr)
+        max-content;
     gap: 1em;  
+    padding: 0 1em
 }
 .leetcode-list-item {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-column: 1/ -1;
+    grid-template-columns: subgrid;
     align-items: center;
-    background: transparent; 
-    width: 100%;
-    transition: color .40s ease;
-    overflow:hidden;
+    transition: color .4s ease;
+
 }
 
-.leetcode-list-name {
-    
-    position:relative;
-    font:inherit;
-    width:20em;
+.leetcode-list-name,
+.leetcode-list-nextdate,
+.leetcode-list-reviews,
+.leetcode-list-memo,
+.leetcode-list-question-link {
+    font: inherit;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.leetcode-list-memo {
+    white-space: pre-wrap;
+}
+
+.leetcode-reviewed-button,
+.leetcode-delete-button,
+.leetcode-list-nextdate,
+.leetcode-list-reviews {
+    white-space: nowrap;
 }
 
 .leetcode-reviewed-button{
@@ -30,15 +51,8 @@
     border-radius: 100px;
     padding: 1em 2em;
     background-color: var(--diff-color);
+    cursor: pointer;
     transition: background .3s ease;
-}
-
-.leetcode-list-question-link{
-    
-    position:relative;
-    font:inherit;
-    width:20em;
-    
 }
 
 .leetcode-delete-button{
@@ -48,16 +62,12 @@
     padding: 1em 2em;
     background-color:black;
     color: white;
+    cursor: pointer;
+    transition: background .3s ease, color .3s ease;
 }
 
 .leetcode-delete-button:hover{
     background-color:red;
-    color: black;
-    transition: background .3s ease, color .3s ease;
-    
-}
-
-.leetcode-list-nextdate, leetcode-list-reviews, leetcode-list-question-link {
-    font:inherit;
+    color: black;    
 }
 

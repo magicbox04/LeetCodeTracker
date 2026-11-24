@@ -22,7 +22,7 @@ export function LeetCodeStatusList({ leetCodeList, setLeetCodeList }) {
 
                                 <div className="leetcode-list-nextdate">{leetCode.nextReviewedDate} </div>
                                 <div className="leetcode-list-reviews" >{leetCode.reviewNum} / 4 Reviews  </div>
-                                <intput type="text" className="leetcode-list-memo">{leetCode.memo} </intput>
+                                <div  type="text" className="leetcode-list-memo">{leetCode.memo} </div >
                                 <div className="leetcode-list-question-link">{leetCode.questionLink}  </div>
                                 <LeetCodeDelete targetID={leetCode.id} leetCodeList={leetCodeList} setLeetCodeList={setLeetCodeList} />
                             </div>

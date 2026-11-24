@@ -125,3 +125,16 @@ fieldset {
     border-radius: 100px;
     margin: 0.4em auto 0;
 }
+
+.memo-input{
+    font: inherit;
+    background: transparent;
+    border-radius: 1.5em;
+    border: 1px solid;
+    color: black;
+    padding: 1em 2em;
+    width: 20em;
+    resize: none;
+    overflow: hidden;
+    transition: color .4s ease;
+}
