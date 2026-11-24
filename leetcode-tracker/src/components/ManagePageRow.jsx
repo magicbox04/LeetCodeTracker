@@ -7,6 +7,8 @@ export function ManagePageRow({ leetcode, onSave }) {
     const [nextReviewedDate, setNextReviewedDate] = useState(leetcode.nextReviewedDate)
     const [reviewNum, setReviewNum] = useState(leetcode.reviewNum)
     const [isComplete, setIsComplete] = useState(leetcode.isComplete)
+    const [memo, setMemo] = useState(leetcode.memo)
+
     function changeName(e) {
         setQuestionName(e.target.value);
     }
@@ -35,6 +37,11 @@ export function ManagePageRow({ leetcode, onSave }) {
         setIsComplete(e.target.checked);
     }
 
+    function changeMemo(e)
+    {
+        setMemo(e.target.value)
+    }
+
     function saveChange() {
         if (questionName !== "" && questionLink !== "") {
             const newLeetCode = {
@@ -44,8 +51,10 @@ export function ManagePageRow({ leetcode, onSave }) {
                 difficulty: difficulty,
                 questionLink: questionLink,
                 nextReviewedDate: nextReviewedDate,
+                memo:memo,
                 reviewNum: reviewNum,
                 isComplete: isComplete
+
             }
 
             onSave(newLeetCode)
@@ -64,6 +73,7 @@ export function ManagePageRow({ leetcode, onSave }) {
                 <label htmlFor="medium">medium</label>
                 <input type="radio" id={`hard-${leetcode.id}`} name={`difficulty-${leetcode.id}`} value="hard" checked={difficulty === 'hard'} onChange={changeDifficulty} />
                 <label htmlFor="hard">hard</label>
+                <input type="text" value={memo} onChange={changeMemo}/>
                 <input type="text" name="question-link" value={questionLink} onChange={changeQuestionLink} />
                 <input type="number" name="review-number" value={reviewNum} onChange={changeReviewNum} />
                 <input type="checkbox" name="is-complete" checked={isComplete} onChange={changeIsComplete} />
