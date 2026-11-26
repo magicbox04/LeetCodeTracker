@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: 
         minmax(8em, 1.5fr)
+        minmax(2em,0.5fr)
         max-content
         max-content
         max-content
@@ -28,7 +29,8 @@
 .leetcode-list-nextdate,
 .leetcode-list-reviews,
 .leetcode-list-memo,
-.leetcode-list-question-link {
+.leetcode-list-question-link,
+.leetcode-list-type {
     font: inherit;
     min-width: 0;
     overflow-wrap: anywhere;

@@ -7,7 +7,8 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
     const [difficulty, setDifficulty] = useState("")
     const [questionLink, setQuestionLink] = useState("")
     const [memo, setMemo] = useState("")
-
+    const [type,  setType] = useState("")
+    
     function changeName(e) {
         setQuestionName(e.target.value);
     }
@@ -28,12 +29,17 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
         setMemo(e.target.value)
     }
 
+    function changeType(e) {
+        setType(e.target.value)
+    }
+
     function saveChange() {
         if (questionName !== "" && questionLink !== "") {
             const newLeetCode = {
                 id: crypto.randomUUID(),
                 questionName: questionName,
                 completedDate: completedDate,
+                type:type,
                 difficulty: difficulty,
                 questionLink: questionLink,
                 nextReviewedDate: addDays(completedDate, 3),
@@ -47,6 +53,8 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
             setCompletedDate("")
             setDifficulty("")
             setQuestionLink("")
+            setMemo("")
+            setType("")
             localStorage.setItem("leetCodeList", JSON.stringify(leetCodeList))
         }
 
@@ -59,6 +67,8 @@ export function LeetCodeAdd({ leetCodeList, setLeetCodeList }) {
                     <input type="text" className="main-text-name" value={questionName} onChange={changeName} placeholder="Question Name" />
                     <input type="date" className="main-text-date" value={completedDate} onChange={changeDate} label="Finished Date" />
                     <input type="text" className="main-text-link" value={questionLink} onChange={changeQuestionLink} placeholder="Question Link" />
+                    <input type="text" className="main-text-type" value={type} onChange={changeType} placeholder="Type" />
+
                 </div>
                 <textarea className="memo-input" placeholder="put any memo" onChange={(e) => {
                     changeMemo(e);

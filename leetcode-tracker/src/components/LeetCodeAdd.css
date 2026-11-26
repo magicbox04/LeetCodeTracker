@@ -10,7 +10,7 @@
     gap: 1em
 }
 
-.main-text-name{
+.main-text-name, .main-text-type{
     font:inherit;
     background: transparent;
     border-radius:100px;
@@ -18,7 +18,7 @@
     color:black;
     padding: 1em 2em;
     position:relative;
-    width: 20em;
+    width: 5em;
     transition: color .40s ease;
     overflow:hidden;
 }

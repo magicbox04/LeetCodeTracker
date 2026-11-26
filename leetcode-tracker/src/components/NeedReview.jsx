@@ -17,6 +17,7 @@ export function NeedReview({ leetCodeList, setLeetCodeList }) {
                     .map((leetCode) => (
                         <div className="leetcode-list-item" key={leetCode.id}>
                             <div className="leetcode-list-name" >{leetCode.questionName}</div>
+                            <div className="leetcode-list-type" >{leetCode.type}</div>  
                             <button className={`leetcode-reviewed-button ${leetCode.difficulty}`} onClick={() => {
                                 setLeetCodeList(leetCodeList.map(thisLeetCode => thisLeetCode.id === leetCode.id ? calculateNextReview(leetCode) : thisLeetCode))
                             }}>
